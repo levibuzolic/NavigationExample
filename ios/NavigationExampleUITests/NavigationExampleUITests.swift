@@ -1,33 +1,40 @@
-//
-//  NavigationExampleUITests.swift
-//  NavigationExampleUITests
-//
-//  Created by Levi Buzolic on 14/3/2022.
-//
-
 import XCTest
 
 class NavigationExampleUITests: XCTestCase {
+  override func setUpWithError() throws {
+    continueAfterFailure = false
+  }
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  override func tearDownWithError() throws {
+  }
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        let app = XCUIApplication()
-        app.launch()
-      
-        print(app.debugDescription)
-      
-        XCTAssertTrue(app.staticTexts["Current screen: NestedScreen"].exists)
-    }
+  func testExample() throws {
+    let app = XCUIApplication()
+    app.launch()
+    
+    print("----- Assert we're on the home screen")
+    
+    // This assert is fast
+    XCTAssertTrue(app.staticTexts["Current screen: Home"].exists)
+    
+    print("----- Navigate to the nested screen")
+    
+    // Open the nested navigator
+    app.buttons["NestedScreen"].tap()
+    
+    // Wait a moment for the screen to animate in
+    sleep(2)
+    
+    print("----- Assert we're on the nested screen")
+    
+    // This assert is slow
+    XCTAssertTrue(app.staticTexts["Current screen: NestedScreen"].exists)
+    
+    print("----- Log the debug description")
+    
+    // Getting this info is slow too
+    print(app.debugDescription)
+    
+    print("----- Done")
+  }
 }

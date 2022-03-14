@@ -1,115 +1,73 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+import * as React from 'react';
+import {View, Text, Button, StyleSheet, LogBox} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you're using an old API with gesture components",
+]);
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// Setting this to false fixes the issue
+const PREVENT_ACCESSIBILITY_LABEL_BUBBLING = true;
 
-const Section: React.FC<{
-  title: string;
-}> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+// Setting this to true fixes the issue
+const SHOW_NESTED_HEADER = false;
+
+const RootNavigator = createStackNavigator();
+const NestedNavigator = createStackNavigator();
+
+export default function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <NavigationContainer>
+      <RootNavigator.Navigator screenOptions={{headerShown: false}}>
+        <RootNavigator.Screen name="Home" component={Screen} />
+        <RootNavigator.Screen name="Nested" component={Nested} />
+      </RootNavigator.Navigator>
+    </NavigationContainer>
   );
-};
+}
 
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+function Nested() {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NestedNavigator.Navigator
+      screenOptions={{headerShown: SHOW_NESTED_HEADER}}>
+      <NestedNavigator.Screen name="NestedScreen" component={Screen} />
+    </NestedNavigator.Navigator>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+function PreventAccessibilityLabelBubbling(props: {
+  flex: boolean;
+  children: React.ReactNode;
+}) {
+  if (PREVENT_ACCESSIBILITY_LABEL_BUBBLING) {
+    return (
+      <View
+        accessible={false}
+        accessibilityLabel=""
+        style={props.flex ? styles.flex : undefined}>
+        {props.children}
+      </View>
+    );
+  }
 
-export default App;
+  return props.children as JSX.Element;
+}
+
+function Screen({route, navigation: {navigate}}: any) {
+  return (
+    <PreventAccessibilityLabelBubbling flex>
+      <View style={{paddingTop: 20}}>
+        <Text>Current screen: {route.name}</Text>
+        <Button onPress={() => navigate('Home')} title="Home" />
+        <Text>Nested Routes:</Text>
+        <Button
+          onPress={() => navigate('Nested', {screen: 'NestedScreen'})}
+          title="NestedScreen"
+        />
+      </View>
+    </PreventAccessibilityLabelBubbling>
+  );
+}
+
+const styles = StyleSheet.create({flex: {flex: 1}});

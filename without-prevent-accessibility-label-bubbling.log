@@ -1,0 +1,71 @@
+0.00s Start Test at 2022-03-14 17:48:52.232
+0.04s Set Up
+0.04s Open org.reactjs.native.example.NavigationExample
+0.07s     Launch org.reactjs.native.example.NavigationExample
+0.88s         Setting up automation session
+1.35s         Wait for org.reactjs.native.example.NavigationExample to idle
+----- Assert we're on the home screen
+2.58s Checking existence of `"Current screen: Home" StaticText`
+----- Navigate to the nested screen
+2.61s Tap "NestedScreen" Button
+2.61s     Wait for org.reactjs.native.example.NavigationExample to idle
+2.62s     Find the "NestedScreen" Button
+2.64s     Check for interrupting elements affecting "NestedScreen" Button
+2.65s     Synthesize event
+2.73s     Wait for org.reactjs.native.example.NavigationExample to idle
+----- Assert we're on the nested screen
+4.75s Checking existence of `"Current screen: NestedScreen" StaticText`
+----- Log the debug description
+4.78s Requesting snapshot of accessibility hierarchy for app with pid 60008
+4.83s Requesting snapshot of accessibility hierarchy for app with pid 60008
+Attributes: Application, 0x157d46ff0, pid: 60008, label: 'NavigationExample'
+Element subtree:
+ →Application, 0x157d46ff0, pid: 60008, label: 'NavigationExample'
+    Window (Main), 0x157d29a40, {{0.0, 0.0}, {414.0, 736.0}}
+      Other, 0x157d1c410, {{0.0, 0.0}, {414.0, 736.0}}
+        Other, 0x157d23de0, {{0.0, 0.0}, {414.0, 736.0}}
+          Other, 0x157d3b960, {{0.0, 0.0}, {414.0, 736.0}}
+            Other, 0x157d1d290, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+              Other, 0x157d4dbb0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                Other, 0x157d3da20, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                  Other, 0x157d05050, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                    Other, 0x157d314b0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                      Other, 0x157d310f0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                        Other, 0x157d34190, {{0.0, 0.0}, {414.0, 64.0}}
+                        Other, 0x157d393e0, {{0.0, 0.0}, {414.0, 736.0}}
+                          Other, 0x157d47ef0, {{0.0, 0.0}, {414.0, 736.0}}
+                            Other, 0x157d1b5d0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                              Other, 0x157d4ce60, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                Other, 0x157d4cad0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                  Other, 0x157d4b800, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                    Other, 0x157d4b460, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                      Other, 0x157d4b0d0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                        Other, 0x157d49290, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                          Other, 0x157d4ad40, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                            Other, 0x157d31840, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                              Other, 0x157d47970, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                Other, 0x157d46160, {{0.0, 0.0}, {414.0, 64.0}}
+                                                Other, 0x157d421d0, {{0.0, 0.0}, {414.0, 736.0}}
+                                                  Other, 0x157d3acb0, {{0.0, 0.0}, {414.0, 736.0}}
+                                                    Other, 0x157d3a720, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                      Other, 0x157d3a190, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                        Other, 0x157d38e50, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                          Other, 0x157d36d90, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                            Other, 0x157d2f500, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                              Other, 0x157d2e1b0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                                Other, 0x157d254c0, {{0.0, 0.0}, {414.0, 736.0}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                                  Other, 0x157d1eb10, {{0.0, 0.0}, {414.0, 129.3}}, label: 'Current screen: NestedScreen Home Nested Routes: NestedScreen'
+                                                                    StaticText, 0x157d4e480, {{0.0, 20.0}, {414.0, 17.3}}, label: 'Current screen: NestedScreen'
+                                                                    Button, 0x157d408d0, {{0.0, 37.0}, {414.0, 37.7}}, label: 'Home'
+                                                                    StaticText, 0x157d4bb90, {{0.0, 74.7}, {414.0, 17.3}}, label: 'Nested Routes:'
+                                                                    Button, 0x157d42ce0, {{0.0, 91.7}, {414.0, 37.7}}, label: 'NestedScreen'
+Path to element:
+ →Application, 0x157d46ff0, pid: 60008, label: 'NavigationExample'
+Query chain:
+ →Find: Target Application 'org.reactjs.native.example.NavigationExample'
+  Output: {
+    Application, 0x157d820d0, pid: 60008, label: 'NavigationExample'
+  }
+
+----- Done
+4.84s Tear Down
